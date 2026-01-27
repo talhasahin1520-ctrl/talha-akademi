@@ -7,146 +7,110 @@
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;800&display=swap" rel="stylesheet">
     <style>
         :root { --primary: #6366f1; --secondary: #ec4899; --dark: #0f172a; --card-bg: rgba(30, 41, 59, 0.7); }
-        body { background-color: var(--dark); color: #f8fafc; font-family: 'Plus Jakarta Sans', sans-serif; margin: 0; line-height: 1.6; overflow-x: hidden; }
+        body { background-color: var(--dark); color: #f8fafc; font-family: 'Plus Jakarta Sans', sans-serif; margin: 0; line-height: 1.6; }
         
-        nav { padding: 20px 8%; display: flex; justify-content: space-between; align-items: center; backdrop-filter: blur(15px); position: sticky; top: 0; z-index: 100; background: rgba(15, 23, 42, 0.8); border-bottom: 1px solid rgba(255, 255, 255, 0.05); }
-        .logo { font-weight: 800; font-size: 1.6rem; letter-spacing: -1px; cursor: pointer; }
+        nav { padding: 20px 8%; display: flex; justify-content: space-between; align-items: center; background: rgba(15, 23, 42, 0.9); position: sticky; top: 0; z-index: 100; border-bottom: 1px solid rgba(255, 255, 255, 0.1); }
+        .logo { font-weight: 800; font-size: 1.6rem; cursor: pointer; }
         .logo span { color: var(--primary); }
 
-        .section { display: none; padding: 60px 8%; min-height: 80vh; animation: fadeIn 0.5s ease; }
-        .active { display: block; }
+        .section { display: none; padding: 60px 8%; min-height: 80vh; }
+        .active { display: block !important; }
 
-        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
-
-        .hero { text-align: center; padding-top: 40px; }
-        h1 { font-size: 3.5rem; font-weight: 800; margin-bottom: 24px; }
+        .hero { text-align: center; }
         .gradient-text { background: linear-gradient(90deg, var(--primary), var(--secondary)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .video-container { max-width: 350px; margin: 30px auto; border-radius: 24px; overflow: hidden; border: 2px solid var(--primary); }
 
-        .video-container { max-width: 350px; margin: 30px auto; border-radius: 24px; overflow: hidden; box-shadow: 0 0 40px rgba(99, 102, 241, 0.2); border: 2px solid var(--primary); }
-
-        .btn { padding: 16px 32px; border-radius: 14px; font-weight: 600; text-decoration: none; transition: 0.3s; display: inline-block; cursor: pointer; border: none; font-size: 1rem; }
+        .btn { padding: 16px 32px; border-radius: 14px; font-weight: 600; cursor: pointer; border: none; transition: 0.3s; font-size: 1rem; text-align: center; display: inline-block; text-decoration: none; }
         .btn-primary { background: var(--primary); color: white; }
-        .btn-secondary { background: var(--secondary); color: white; margin-top: 20px; }
+        
+        .card-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; margin-top: 30px; }
+        .card { background: var(--card-bg); padding: 25px; border-radius: 20px; text-align: center; border: 1px solid rgba(255,255,255,0.1); }
 
-        .card-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 25px; margin-top: 40px; }
-        .card { background: var(--card-bg); padding: 30px; border-radius: 24px; border: 1px solid rgba(255,255,255,0.1); text-align: center; backdrop-filter: blur(10px); }
-
-        /* İletişim Sayfası Özel */
-        .contact-box { background: linear-gradient(135deg, rgba(99, 102, 241, 0.1), rgba(236, 72, 153, 0.1)); padding: 50px; border-radius: 30px; border: 1px solid var(--primary); max-width: 600px; margin: 0 auto; }
-        .contact-item { margin-bottom: 25px; font-size: 1.2rem; }
-        .contact-item span { color: var(--primary); font-weight: 800; display: block; font-size: 0.9rem; text-transform: uppercase; }
-
-        /* --- Gemini-AI Widget --- */
-        #chat-widget { position: fixed; bottom: 30px; right: 30px; z-index: 1000; }
-        #chat-button { background: var(--primary); width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; cursor: pointer; box-shadow: 0 10px 25px rgba(0,0,0,0.3); font-size: 30px; transition: 0.3s; }
-        #chat-button:hover { transform: scale(1.1); }
-        #chat-window { display: none; width: 320px; height: 450px; background: #1e293b; border-radius: 20px; flex-direction: column; position: absolute; bottom: 80px; right: 0; border: 1px solid var(--primary); overflow: hidden; box-shadow: 0 20px 50px rgba(0,0,0,0.5); }
-        .chat-header { background: var(--primary); padding: 15px; font-weight: bold; display: flex; justify-content: space-between; }
-        #chat-content { flex: 1; padding: 15px; overflow-y: auto; font-size: 0.85rem; }
-        .chat-footer { padding: 10px; background: #0f172a; display: flex; gap: 5px; }
-        #chat-input { flex: 1; background: #1e293b; border: 1px solid var(--primary); color: white; border-radius: 8px; padding: 8px; outline: none; }
+        /* Asistan Tasarımı */
+        #chat-widget { position: fixed; bottom: 20px; right: 20px; z-index: 2000; }
+        #chat-button { background: var(--primary); width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; cursor: pointer; font-size: 30px; box-shadow: 0 10px 20px rgba(0,0,0,0.4); }
+        #chat-window { display: none; width: 300px; height: 400px; background: #1e293b; border-radius: 20px; flex-direction: column; position: absolute; bottom: 70px; right: 0; border: 2px solid var(--primary); overflow: hidden; }
+        #chat-content { flex: 1; padding: 15px; overflow-y: auto; font-size: 0.9rem; }
+        .chat-footer { padding: 10px; background: #0f172a; display: flex; }
+        #chat-input { flex: 1; background: transparent; border: 1px solid var(--primary); color: white; border-radius: 5px; padding: 5px; outline: none; }
     </style>
 </head>
 <body>
 
     <nav>
         <div class="logo" onclick="showPage('main-page')">NOVA<span>.EĞİTİM</span></div>
-        <button onclick="showPage('contact-page')" class="btn" style="background: rgba(255,255,255,0.05); color: white; padding: 10px 20px;">İletişim</button>
+        <button onclick="showPage('contact-page')" class="btn" style="background: rgba(255,255,255,0.1); color: white; padding: 8px 15px;">İletişim</button>
     </nav>
 
-    <main id="main-page" class="section active">
-        <section class="hero">
+    <div id="main-page" class="section active">
+        <div class="hero">
             <h1>Geleceği Kodlayan <br><span class="gradient-text">Yeni Nesil Akademi</span></h1>
-            
             <div class="video-container">
                 <video width="100%" autoplay muted loop controls>
                     <source src="https://raw.githubusercontent.com/talha-akademi/temp/main/GELECEK%20B%C4%B0LD%C4%B0R%C4%B0S%C4%B0!.mp4" type="video/mp4">
                 </video>
             </div>
-
-            <p style="color: #94a3b8; max-width: 600px; margin: 0 auto 30px;">10 yaşında bir vizyoner tarafından kurulan dijital eğitim platformu.</p>
-            <div style="display: flex; gap: 15px; justify-content: center; flex-wrap: wrap;">
-                <button onclick="showPage('teacher-page')" class="btn btn-primary">🎁 Ücretsiz Deneme Dersleri</button>
-                <button onclick="showPage('contact-page')" class="btn" style="background: #334155; color: white;">📩 Bize Ulaşın</button>
+            <div style="display: flex; gap: 10px; justify-content: center; margin-top: 20px;">
+                <button type="button" onclick="showPage('teacher-page')" class="btn btn-primary">🎁 Ücretsiz Deneme</button>
+                <button type="button" onclick="showPage('contact-page')" class="btn" style="background:#334155; color:white;">📩 Bize Ulaşın</button>
             </div>
-        </section>
-    </main>
+        </div>
+    </div>
 
-    <section id="teacher-page" class="section">
-        <h2 style="font-size: 2.5rem; text-align: center;">Eğitmen Kadromuz</h2>
-        <p style="text-align: center; color: #94a3b8;">Uzmanlarımızla tanışın ve geleceği inşa edin.</p>
-        
+    <div id="teacher-page" class="section">
+        <h2 style="text-align: center;">Eğitmen Kadromuz</h2>
         <div class="card-grid">
             <div class="card">
-                <div style="font-size: 50px;">👨‍💻</div>
+                <div style="font-size: 40px;">👨‍💻</div>
                 <h3>Ahmet Yılmaz</h3>
-                <p>Branş: Siber Güvenlik</p>
-                <p><strong>Saatler:</strong> Hafta içi 19:00 - 21:00</p>
-                <button onclick="showPage('contact-page')" class="btn btn-primary" style="width: 100%;">Ders Talebi Oluştur</button>
-            </div>
-            
-            <div class="card" style="border: 2px dashed var(--secondary);">
-                <div style="font-size: 50px;">🚀</div>
-                <h3>Eğitmen Ol</h3>
-                <p>Ders başı 1.000 TL kazan!</p>
-                <button onclick="showPage('contact-page')" class="btn btn-secondary" style="width: 100%;">Başvuru Yap</button>
+                <p>Siber Güvenlik Uzmanı</p>
+                <button type="button" onclick="showPage('contact-page')" class="btn btn-primary" style="width:100%">Ders Al</button>
             </div>
         </div>
-    </section>
+    </div>
 
-    <section id="contact-page" class="section">
-        <div class="contact-box">
-            <h2 style="margin-top: 0; color: white;">📩 İletişim Üssü</h2>
-            <p style="color: #94a3b8; margin-bottom: 40px;">Nova Eğitim ile iletişime geçmek için aşağıdaki bilgileri kullanabilirsin kanka!</p>
-            
-            <div class="contact-item">
-                <span>Resmi İşletme E-Postası</span>
-                talhasahin1520@gmail.com
-            </div>
-
-            <div class="contact-item">
-                <span>Destek Saatleri</span>
-                Hafta içi: 09:00 - 22:00 <br> Hafta sonu: 10:00 - 20:00
-            </div>
-
-            <div class="contact-item">
-                <span>Platform Durumu</span>
-                🟢 Aktif & Güvenli
-            </div>
-
-            <a href="mailto:talhasahin1520@gmail.com" class="btn btn-primary" style="width: 100%; box-sizing: border-box; text-align: center;">E-Posta Gönder</a>
+    <div id="contact-page" class="section">
+        <div style="max-width: 500px; margin: 0 auto; background: rgba(255,255,255,0.05); padding: 40px; border-radius: 30px; border: 1px solid var(--primary); text-align: center;">
+            <h2>📩 İletişim Üssü</h2>
+            <p><strong>Mail:</strong> talhasahin1520@gmail.com</p>
+            <p><strong>Destek:</strong> Hafta içi 09:00 - 22:00</p>
+            <p style="color:#94a3b8; font-size: 0.9rem;">E-posta göndermek için aşağıdaki butona tıkla.</p>
+            <a href="mailto:talhasahin1520@gmail.com" class="btn btn-primary" style="display: block; margin-top: 20px;">E-Posta Gönder</a>
         </div>
-    </section>
+    </div>
 
     <div id="chat-widget">
         <div id="chat-button" onclick="toggleChat()">🤖</div>
         <div id="chat-window">
-            <div class="chat-header">
-                <span>Nova-AI Asistan</span>
-                <span onclick="toggleChat()" style="cursor:pointer">✖</span>
+            <div style="background:var(--primary); padding:10px; font-weight:bold; display: flex; justify-content: space-between;">
+                <span>Nova-AI</span>
+                <span onclick="toggleChat()" style="cursor:pointer;">×</span>
             </div>
             <div id="chat-content">
-                <p><strong>Nova-AI:</strong> Selam kanka! Ben Gemini tabanlı asistanın. Nova Eğitim hakkında ne öğrenmek istersin? 🚀</p>
+                <p><strong>Nova-AI:</strong> Selam kanka! Nasıl yardımcı olabilirim?</p>
             </div>
             <div class="chat-footer">
-                <input type="text" id="chat-input" placeholder="Sorunu yaz..." onkeypress="if(event.key==='Enter') sendMessage()">
-                <button onclick="sendMessage()" style="background:var(--primary); border:none; color:white; border-radius:5px; padding:5px 10px; cursor:pointer">></button>
+                <input type="text" id="chat-input" placeholder="Yaz..." onkeypress="if(event.key==='Enter') sendMessage()">
+                <button onclick="sendMessage()" style="background:var(--primary); color:white; border:none; padding:5px 10px; margin-left:5px; border-radius:5px; cursor:pointer;">></button>
             </div>
         </div>
     </div>
 
     <script>
         function showPage(pageId) {
-            document.querySelectorAll('.section').forEach(section => {
-                section.classList.remove('active');
-            });
-            document.getElementById(pageId).classList.add('active');
+            document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
+            const target = document.getElementById(pageId);
+            if(target) target.classList.add('active');
             window.scrollTo(0,0);
         }
 
         function toggleChat() {
             const win = document.getElementById('chat-window');
-            win.style.display = win.style.display === 'flex' ? 'none' : 'flex';
+            if (win.style.display === 'flex') {
+                win.style.display = 'none';
+            } else {
+                win.style.display = 'flex';
+            }
         }
 
         function sendMessage() {
@@ -154,21 +118,19 @@
             const content = document.getElementById('chat-content');
             if(input.value.trim() !== "") {
                 content.innerHTML += `<p style="text-align:right"><strong>Sen:</strong> ${input.value}</p>`;
-                const msg = input.value.toLowerCase();
+                const text = input.value.toLowerCase();
                 input.value = "";
                 
                 setTimeout(() => {
-                    let res = "Bunu henüz bilmiyorum ama Talha'ya not bıraktım! 🚀";
-                    if(msg.includes("fiyat")) res = "Aylık 4.000 TL, Yıllık ise 10.000 TL kanka. Çok uygun!";
-                    if(msg.includes("ders")) res = "Ücretsiz deneme derslerimizi eğitmen kadrosu sayfasından inceleyebilirsin.";
-                    if(msg.includes("talha")) res = "Talha, bu platformun 10 yaşındaki dahi kurucusu!";
+                    let reply = "Talha'ya bu konuyu iletiyorum kanka! 🚀";
+                    if(text.includes("fiyat")) reply = "Aylık 4.000 TL, Yıllık 10.000 TL!";
+                    if(text.includes("talha")) reply = "Talha bu sistemin dahi kurucusudur!";
                     
-                    content.innerHTML += `<p><strong>Nova-AI:</strong> ${res}</p>`;
+                    content.innerHTML += `<p><strong>Nova-AI:</strong> ${reply}</p>`;
                     content.scrollTop = content.scrollHeight;
-                }, 800);
+                }, 500);
             }
         }
     </script>
 </body>
 </html>
-

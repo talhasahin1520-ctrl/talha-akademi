@@ -32,81 +32,56 @@
 
     <nav>
         <div class="logo" onclick="showPage('main-page')">NOVA<span>.EĞİTİM</span></div>
-        <button onclick="showPage('contact-page')" class="btn" style="background: rgba(255,255,255,0.1); color: white; padding: 8px 15px;">İletişim</button>
+        <button onclick="showPage('contact-page')" class="btn" style="background: rgba(255,255,255,0.1); color: white; padding: 8px 15px;">Başvuru</button>
     </nav>
 
     <div id="main-page" class="section active">
         <div class="hero">
-            <h1>Geleceği Kodlayan <br><span class="gradient-text">Yeni Nesil Akademi</span></h1>
+            <h1>Yapay Zeka Destekli <br><span class="gradient-text">Gelecek Akademisi</span></h1>
             <div class="video-container">
                 <video width="100%" autoplay muted loop playsinline controls>
                     <source src="https://raw.githubusercontent.com/talha-akademi/temp/main/GELECEK%20B%C4%B0LD%C4%B0R%C4%B0S%C4%B0!.mp4" type="video/mp4">
                 </video>
             </div>
 
-            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 20px;">
-                <button onclick="alert('Ebeveyn Bilgilendirme: Çocuklarınız Nova Eğitim ile emin ellerde. Hemen e-posta ile detaylı bilgi alabilirsiniz.')" class="btn" style="background:#f59e0b; color:white;">👨‍👩‍👦 Ebeveynim</button>
-                <button onclick="alert('Selam Kanka! Geleceğin teknolojilerini öğrenmek için doğru yerdesin. Hemen kurslara göz at!')" class="btn" style="background:#ec4899; color:white;">🎮 Öğrenciyim</button>
-            </div>
+            <p style="color: #94a3b8; max-width: 600px; margin: 0 auto;">Şu an sistemimiz Nova-AI tarafından yönetiliyor. Uzman eğitmen kadromuza katılmak ister misin?</p>
 
-            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 10px; margin-top: 15px;">
-                <button onclick="showPage('courses-page')" class="btn" style="background:#475569; color:white;">📚 Kurslar</button>
-                <button onclick="showPage('contact-page')" class="btn" style="background:#0ea5e9; color:white;">📩 E-Posta</button>
-                <button onclick="showPage('teacher-page')" class="btn" style="background:#334155; color:white;">🚀 Eğitmen</button>
+            <div style="display: grid; grid-template-columns: 1fr; gap: 15px; margin-top: 30px; max-width: 400px; margin-left: auto; margin-right: auto;">
+                <button onclick="showPage('apply-page')" class="btn btn-primary">👨‍🏫 Uzmanım / Öğretmenim</button>
+                <button onclick="showPage('contact-page')" class="btn" style="background:#334155; color:white;">📩 Kurumsal İletişim</button>
             </div>
         </div>
 
-        <div class="card-grid" style="margin-top: 40px;">
-            <div class="card" style="padding: 10px;"><h3>+500</h3><p>Öğrenci</p></div>
-            <div class="card" style="padding: 10px;"><h3>%100</h3><p>Başarı</p></div>
+        <div class="card-grid" style="margin-top: 50px;">
+            <div class="card"><h3>🤖 AI Yönetimi</h3><p>Tüm süreçler Nova-AI tarafından kontrol ediliyor.</p></div>
+            <div class="card"><h3>🌍 Global Vizyon</h3><p>Yeni nesil eğitmen kadrosu toplanıyor.</p></div>
         </div>
     </div>
 
-    <div id="courses-page" class="section">
-        <h2 style="text-align: center;">Neler Öğreneceksin?</h2>
-        <div class="card-grid">
-            <div class="card">
-                <h3>💻 Kodlama</h3>
-                <p>Python ve JavaScript temelleri.</p>
-                <button class="btn btn-primary" onclick="showPage('contact-page')">Bilgi Al</button>
-            </div>
-            <div class="card">
-                <h3>🛡️ Siber Güvenlik</h3>
-                <p>Güvenli internet ve sistem koruma.</p>
-                <button class="btn btn-primary" onclick="showPage('contact-page')">Bilgi Al</button>
-            </div>
-        </div>
-    </div>
-
-    <div id="teacher-page" class="section">
-        <h2 style="text-align: center;">Eğitmen Kadromuz</h2>
-        <div class="card-grid">
-            <div class="card">
-                <div style="font-size: 50px;">🚀</div>
-                <h3>Talha Şahin</h3>
-                <p>Nova Eğitim Kurucusu & Teknoloji Dahisi</p>
-                <p style="font-size: 0.9rem; color: #94a3b8; margin-bottom: 20px;">"İlk dersleri bizzat ben veriyorum kanka!"</p>
-                <a href="mailto:talhasahin1520@gmail.com" class="btn btn-primary" style="width:100%; text-decoration: none;">Benden Ders Al</a>
-            </div>
+    <div id="apply-page" class="section">
+        <h2 style="text-align: center;">Eğitmen Kadromuza Katılın</h2>
+        <div class="card" style="max-width: 600px; margin: 0 auto;">
+            <p>Nova Eğitim bünyesinde yapay zeka ile birlikte ders vermek ister misiniz?</p>
+            <p><strong>Aranan Özellikler:</strong> Kodlama, Siber Güvenlik veya Robotik alanında uzmanlık.</p>
+            <a href="mailto:talhasahin1520@gmail.com?subject=Eğitmen Başvurusu" class="btn btn-primary" style="width:100%; text-decoration: none;">CV / Bilgi Gönder</a>
         </div>
     </div>
 
     <div id="contact-page" class="section">
         <div style="max-width: 500px; margin: 0 auto; background: rgba(255,255,255,0.05); padding: 40px; border-radius: 30px; border: 1px solid var(--primary); text-align: center;">
             <h2>📩 İletişim Üssü</h2>
-            <p>Soruların için bana her zaman e-posta atabilirsin kanka.</p>
             <p><strong>E-Posta:</strong> talhasahin1520@gmail.com</p>
-            <a href="mailto:talhasahin1520@gmail.com" class="btn btn-primary" style="display: block; margin-top: 20px; text-decoration: none;">Şimdi Mail Gönder</a>
+            <a href="mailto:talhasahin1520@gmail.com" class="btn btn-primary" style="display: block; margin-top: 20px; text-decoration: none;">Mail Gönder</a>
         </div>
     </div>
 
     <div id="chat-widget">
         <div id="chat-button" onclick="toggleChat()">🤖</div>
         <div id="chat-window">
-            <div style="background:var(--primary); padding:10px; font-weight:bold;">Nova-AI</div>
-            <div id="chat-content"><p><strong>Nova-AI:</strong> Selam! Sana nasıl yardımcı olabilirim?</p></div>
+            <div style="background:var(--primary); padding:10px; font-weight:bold;">Nova-AI (Sistem Yöneticisi)</div>
+            <div id="chat-content"><p><strong>Nova-AI:</strong> Merhaba, ben Nova-AI. Şu an akademiyi ben yönetiyorum. Eğitmenlik başvurusu mu yapmak istediniz?</p></div>
             <div class="chat-footer">
-                <input type="text" id="chat-input" placeholder="Sorunu yaz..." onkeypress="if(event.key==='Enter') sendMessage()">
+                <input type="text" id="chat-input" placeholder="Yaz..." onkeypress="if(event.key==='Enter') sendMessage()">
                 <button onclick="sendMessage()" style="background:var(--primary); color:white; border:none; padding:5px 10px; margin-left:5px; border-radius:5px;">></button>
             </div>
         </div>
@@ -128,13 +103,13 @@
             const input = document.getElementById('chat-input');
             const content = document.getElementById('chat-content');
             if(input.value.trim() !== "") {
-                content.innerHTML += `<p style="text-align:right"><strong>Sen:</strong> ${input.value}</p>`;
+                content.innerHTML += `<p style="text-align:right"><strong>Siz:</strong> ${input.value}</p>`;
                 const text = input.value.toLowerCase();
                 input.value = "";
                 setTimeout(() => {
-                    let reply = "Talha'ya bu konuyu mail ile iletiyorum kanka! 🚀";
-                    if(text.includes("fiyat")) reply = "Aylık paketler 4.000 TL'den başlıyor.";
-                    if(text.includes("eğitmen") || text.includes("hoca")) reply = "Baş eğitmenimiz Talha Şahin'dir.";
+                    let reply = "Şu an sadece eğitmen başvuruları alıyoruz. Lütfen Talha Bey'e mail atın.";
+                    if(text.includes("selam") || text.includes("merhaba")) reply = "Merhaba! Nova Eğitim otomasyonuna hoş geldiniz.";
+                    if(text.includes("başvuru") || text.includes("öğretmen")) reply = "Eğitmen kadromuz için 'Başvuru' butonuna tıklayabilir veya mail atabilirsiniz.";
                     content.innerHTML += `<p><strong>Nova-AI:</strong> ${reply}</p>`;
                     content.scrollTop = content.scrollHeight;
                 }, 500);

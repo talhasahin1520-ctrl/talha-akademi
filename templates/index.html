@@ -41,11 +41,11 @@
             <div class="video-container">
                 <video width="100%" autoplay muted loop playsinline controls preload="auto">
                     <source src="https://raw.githubusercontent.com/talha-akademi/temp/main/GELECEK%20B%C4%B0LD%C4%B0R%C4%B0S%C4%B0!.mp4" type="video/mp4">
-                    Tarayıcın videoyu desteklemiyor kanka.
+                    Tarayıcın videoyu desteklemiyor.
                 </video>
             </div>
             <p style="color: #94a3b8; max-width: 600px; margin: 0 auto; margin-bottom: 20px;">
-                Sistemimiz <b>Nova-AI</b> tarafından yönetiliyor. Uzman eğitmen kadromuza sen de katıl!
+                Sistemimiz <b>Nova-AI</b> tarafından yönetiliyor. Uzman eğitmen kadromuza katıl!
             </p>
             <div style="display: grid; grid-template-columns: 1fr; gap: 15px; max-width: 400px; margin: 0 auto;">
                 <button onclick="showPage('apply-page')" class="btn btn-primary">👨‍🏫 Uzmanım / Öğretmenim</button>
@@ -57,16 +57,16 @@
     <div id="apply-page" class="section">
         <h2 style="text-align: center;">Eğitmen Başvurusu</h2>
         <div class="card" style="max-width: 600px; margin: 0 auto;">
-            <p>Nova Eğitim ekosistemine katılmak için hazır mısınız?</p>
-            <a href="mailto:talhasahin1520@gmail.com?subject=Eğitmen Başvurusu" class="btn btn-primary" style="width:100%; text-decoration: none; display: block; margin-top: 15px;">Başvuruyu Gönder</a>
+            <p>Nova Eğitim ekosistemine katılmak için hazır mısın?</p>
+            <a href="mailto:novaegitim2026@gmail.com?subject=Eğitmen Başvurusu" class="btn btn-primary" style="width:100%; text-decoration: none; display: block; margin-top: 15px;">Başvuruyu Gönder</a>
         </div>
     </div>
 
     <div id="contact-page" class="section">
         <div style="max-width: 500px; margin: 0 auto; background: rgba(255,255,255,0.05); padding: 40px; border-radius: 30px; border: 1px solid var(--primary); text-align: center;">
             <h2>📩 İletişim</h2>
-            <p><strong>E-Posta:</strong> talhasahin1520@gmail.com</p>
-            <a href="mailto:talhasahin1520@gmail.com" class="btn btn-primary" style="display: block; margin-top: 20px; text-decoration: none;">Bize Yazın</a>
+            <p><strong>E-Posta:</strong> novaegitim2026@gmail.com</p>
+            <a href="mailto:novaegitim2026@gmail.com" class="btn btn-primary" style="display: block; margin-top: 20px; text-decoration: none;">Bize Yazın</a>
         </div>
     </div>
 
@@ -74,7 +74,7 @@
         <div id="chat-button" onclick="toggleChat()">🤖</div>
         <div id="chat-window">
             <div style="background:var(--primary); padding:10px; font-weight:bold;">Nova-AI System</div>
-            <div id="chat-content"><p><strong>Nova-AI:</strong> Merhaba! Ben sistem yöneticisiyim. Eğitmenlik mi düşünüyorsunuz?</p></div>
+            <div id="chat-content"><p><strong>Nova-AI:</strong> Merhaba! Ben sistem yöneticisiyim. Başvuru mu yapacaksınız?</p></div>
             <div class="chat-footer">
                 <input type="text" id="chat-input" placeholder="Mesaj..." onkeypress="if(event.key==='Enter') sendMessage()">
                 <button onclick="sendMessage()" style="background:var(--primary); color:white; border:none; padding:5px 10px; margin-left:5px; border-radius:5px;">></button>
@@ -100,7 +100,7 @@
                 const text = input.value.toLowerCase();
                 input.value = "";
                 setTimeout(() => {
-                    let reply = "Şu an sadece eğitmen başvurusu alıyoruz kanka! Mail atarsan Talha sana döner.";
+                    let reply = "Şu an uzman başvurularını novaegitim2026@gmail.com üzerinden alıyoruz kanka!";
                     if(text.includes("selam")) reply = "Selam! Nova-AI dünyasına hoş geldin.";
                     content.innerHTML += `<p><strong>Nova-AI:</strong> ${reply}</p>`;
                     content.scrollTop = content.scrollHeight;

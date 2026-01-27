@@ -31,17 +31,17 @@
         .card { background: var(--card-bg); padding: 40px; border-radius: 30px; border: 1px solid rgba(255,255,255,0.05); transition: var(--transition); }
         .card:hover { transform: translateY(-10px); border-color: var(--primary); }
         .btn { padding: 18px 40px; border-radius: 20px; font-weight: 700; cursor: pointer; border: none; transition: var(--transition); text-decoration: none; display: inline-block; }
-        .btn-primary { background: var(--primary); color: white; }
-        
-        /* AI CHAT STYLE */
+        .btn-primary { background: var(--primary); color: white; box-shadow: 0 10px 20px rgba(99, 102, 241, 0.3); }
+
+        /* CHAT BOT TASARIMI (ESKİ HAVALI HALİ) */
         #chat-widget { position: fixed; bottom: 30px; right: 30px; z-index: 2000; }
         #chat-button { width: 70px; height: 70px; background: var(--primary); border-radius: 25px; display: flex; align-items: center; justify-content: center; font-size: 30px; cursor: pointer; box-shadow: 0 15px 35px rgba(0,0,0,0.4); }
-        #chat-window { display: none; width: 380px; height: 550px; background: #0f172a; border-radius: 30px; position: absolute; bottom: 90px; right: 0; border: 1px solid var(--primary); flex-direction: column; overflow: hidden; }
+        #chat-window { display: none; width: 380px; height: 550px; background: #0f172a; border-radius: 30px; position: absolute; bottom: 90px; right: 0; border: 1px solid var(--primary); flex-direction: column; overflow: hidden; box-shadow: 0 25px 50px rgba(0,0,0,0.5); }
         #chat-header { padding: 20px; background: var(--primary); font-weight: 800; display: flex; justify-content: space-between; }
         #chat-messages { flex: 1; padding: 20px; overflow-y: auto; display: flex; flex-direction: column; gap: 15px; }
-        .msg { padding: 12px 18px; border-radius: 15px; max-width: 80%; font-size: 0.95rem; }
-        .msg-ai { background: rgba(255,255,255,0.05); align-self: flex-start; }
-        .msg-user { background: var(--primary); align-self: flex-end; }
+        .msg { padding: 12px 18px; border-radius: 15px; max-width: 80%; font-size: 0.95rem; line-height: 1.4; }
+        .msg-ai { background: rgba(255,255,255,0.05); align-self: flex-start; border-bottom-left-radius: 2px; }
+        .msg-user { background: var(--primary); align-self: flex-end; border-bottom-right-radius: 2px; }
         .chat-input-area { padding: 20px; background: rgba(0,0,0,0.2); display: flex; gap: 10px; }
         #chat-input { flex: 1; background: #1e293b; border: none; border-radius: 12px; padding: 12px; color: white; outline: none; }
     </style>
@@ -58,42 +58,53 @@
 
     <div id="home" class="section active">
         <div class="hero">
+            <span style="color: var(--secondary); font-weight: 700; letter-spacing: 2px;">SINIRLARI ZORLA</span>
             <h1>Yapay Zeka İle <br><span class="gradient-text">Geleceği Tasarla</span></h1>
+            
             <div class="video-wrapper">
                 <video autoplay muted loop playsinline controls>
                     <source src="https://raw.githubusercontent.com/talha-akademi/temp/main/GELECEK%20B%C4%B0LD%C4%B0R%C4%B0S%C4%B0!.mp4" type="video/mp4">
                 </video>
             </div>
+
             <div class="grid">
-                <div class="card"><h3>🚀 Robotik</h3><p>Geleceği kodla.</p></div>
-                <div class="card"><h3>🧠 AI Akademi</h3><p>Zekayı yönet.</p></div>
-                <div class="card"><h3>🛡️ Güvenlik</h3><p>Dünyayı koru.</p></div>
+                <div class="card"><h3>🚀 Robotik Kodlama</h3><p>Python ve C++ ile kendi dünyanı kur.</p></div>
+                <div class="card"><h3>🧠 AI Mühendisliği</h3><p>Geleceğin zekasını sen yönet.</p></div>
+                <div class="card"><h3>🛡️ Siber Güvenlik</h3><p>Dijital dünyayı sen koru.</p></div>
             </div>
         </div>
     </div>
 
     <div id="about" class="section">
-        <h2 style="text-align: center;">Vizyonumuz</h2>
-        <div class="card" style="max-width: 600px; margin: auto;">
-            <p>10 yaşındaki kurucumuz Talha önderliğinde geleceğe yürüyoruz. Ders başı 1000 TL kazanç ve ücretsiz eğitimle dünyayı değiştiriyoruz!</p>
+        <h2 style="text-align: center; font-size: 3rem;">Biz Kimiz?</h2>
+        <div class="card" style="max-width: 800px; margin: 40px auto;">
+            <p>Nova Eğitim, 10 yaşındaki vizyoner <b>Talha</b> tarafından kuruldu. Hedefimiz 2026'da herkesi teknoloji lideri yapmak!</p>
         </div>
     </div>
 
     <div id="apply" class="section">
-        <h2 style="text-align: center;">Bize Katıl</h2>
+        <h2 class="gradient-text" style="text-align: center; font-size: 3rem;">Ekibimize Katıl</h2>
         <div class="grid">
-            <div class="card"><h4>Eğitmen Ol</h4><p>1000 TL Kazan.</p></div>
-            <div class="card"><h4>Öğrenci Ol</h4><p>Ücretsiz Başla.</p></div>
+            <div class="card">
+                <h4>Eğitmen Ol</h4>
+                <p>Ders başı 1000 TL kazan.</p>
+                <a href="mailto:novaegitim2026@gmail.com" class="btn btn-primary">Başvur</a>
+            </div>
+            <div class="card">
+                <h4>Öğrenci Ol</h4>
+                <p>İlk dersin hediye!</p>
+                <a href="mailto:novaegitim2026@gmail.com" class="btn btn-primary">Kayıt Ol</a>
+            </div>
         </div>
     </div>
 
     <div id="chat-widget">
         <div id="chat-button" onclick="toggleChat()">🤖</div>
         <div id="chat-window">
-            <div id="chat-header"><span>Nova-AI (Gemini)</span><span onclick="toggleChat()">×</span></div>
-            <div id="chat-messages"><div class="msg msg-ai">Selam kanka! Ben Nova-AI. Gemini motoruyla çalışıyorum. Ne sormak istersin?</div></div>
+            <div id="chat-header"><span>Nova-AI v2.5 (Gemini)</span><span onclick="toggleChat()" style="cursor:pointer">×</span></div>
+            <div id="chat-messages"><div class="msg msg-ai">Selam kanka! Ben Nova-AI. Gemini zekasıyla donatıldım. Ne sormak istersin?</div></div>
             <div class="chat-input-area">
-                <input type="text" id="chat-input" placeholder="Yaz kanka..." onkeypress="if(event.key==='Enter') handleChat()">
+                <input type="text" id="chat-input" placeholder="Bir şey sor..." onkeypress="if(event.key==='Enter') handleChat()">
                 <button onclick="handleChat()" class="btn btn-primary" style="padding: 10px;">></button>
             </div>
         </div>
@@ -103,11 +114,14 @@
         function showPage(id) {
             document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
             document.getElementById(id).classList.add('active');
+            window.scrollTo({top:0, behavior:'smooth'});
         }
+
         function toggleChat() {
             const w = document.getElementById('chat-window');
             w.style.display = (w.style.display === 'flex') ? 'none' : 'flex';
         }
+
         async function handleChat() {
             const input = document.getElementById('chat-input');
             const box = document.getElementById('chat-messages');
@@ -119,22 +133,25 @@
             box.scrollTop = box.scrollHeight;
 
             const loadingId = "load-" + Date.now();
-            box.innerHTML += `<div class="msg msg-ai" id="${loadingId}">Düşünüyorum...</div>`;
+            box.innerHTML += `<div class="msg msg-ai" id="${loadingId}">Düşünüyorum kanka...</div>`;
+            box.scrollTop = box.scrollHeight;
 
             try {
-                // SENİN API ANAHTARIN BURADA
-                const apiKey = "AIzaSyAgT8UFgsNlRhGnVx2fpF1bY3ZgORsKDm8";
+                const apiKey = "AIzaSyAgT8UFgsNlRhGnVx2fpF1bY3ZgORsKDm8"; // Kendi anahtarın
                 const response = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=${apiKey}`, {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify({
-                        contents: [{ parts: [{ text: `Sen Nova-AI'sın. Kurucun 10 yaşındaki Talha. Samimi konuş. Soru: ${userText}` }] }]
+                        contents: [{ 
+                            parts: [{ text: `Sen Nova-AI'sın. Nova Eğitim'in asistanısın. Kurucun 10 yaşındaki Talha'dır. Samimi ve enerjik konuş. Soru: ${userText}` }] 
+                        }]
                     })
                 });
                 const data = await response.json();
-                document.getElementById(loadingId).innerText = data.candidates[0].content.parts[0].text;
-            } catch (e) {
-                document.getElementById(loadingId).innerText = "Hata oldu kanka, anahtarı kontrol et!";
+                const aiReply = data.candidates[0].content.parts[0].text;
+                document.getElementById(loadingId).innerText = aiReply;
+            } catch (error) {
+                document.getElementById(loadingId).innerText = "Kanka bir sorun oldu ama biz buradayız!";
             }
             box.scrollTop = box.scrollHeight;
         }

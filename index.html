@@ -5,46 +5,71 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Nova Eğitim | Siber Güvenlik</title>
     <style>
-        :root { --neon: #00ff41; --bg: #020617; --card: #0f172a; }
-        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', sans-serif; }
-        body { background: var(--bg); color: white; line-height: 1.6; }
+        body { background-color: #020617; color: white; font-family: sans-serif; margin: 0; padding: 0; }
+        .nav { background: #0f172a; padding: 20px; border-bottom: 2px solid #8b5cf6; text-align: center; }
+        .logo { font-weight: 900; color: #00ff41; font-size: 24px; text-decoration: none; }
         
-        /* Navigasyon */
-        nav { padding: 1.5rem 5%; display: flex; justify-content: space-between; align-items: center; background: rgba(2, 6, 23, 0.9); position: fixed; width: 100%; top: 0; z-index: 1000; border-bottom: 1px solid #1e293b; }
-        .logo { font-size: 1.5rem; font-weight: 900; color: var(--neon); text-decoration: none; letter-spacing: 2px; }
+        .hero { padding: 60px 20px; text-align: center; background: linear-gradient(#1e1b4b, #020617); }
+        .hero h1 { font-size: 3rem; margin-bottom: 10px; }
+        .neon { color: #00ff41; text-shadow: 0 0 10px #00ff41; }
 
-        /* Hero */
-        .hero { height: 80vh; display: flex; align-items: center; justify-content: center; text-align: center; background: radial-gradient(circle, #1e1b4b 0%, #020617 100%); padding-top: 80px; }
-        .hero h1 { font-size: 3.5rem; margin-bottom: 20px; }
-        .neon-text { color: var(--neon); text-shadow: 0 0 10px var(--neon); }
+        .container { max-width: 800px; margin: 20px auto; padding: 20px; }
+        .card { background: #0f172a; padding: 20px; border-radius: 10px; border: 1px solid #1e293b; margin-bottom: 20px; }
 
-        /* İçerik Alanları */
-        .section { padding: 80px 10%; }
-        .card { background: var(--card); padding: 30px; border-radius: 15px; border: 1px solid #1e293b; margin-bottom: 30px; }
-        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; }
-
-        /* GERÇEK TERMİNAL */
-        .terminal {
-            max-width: 800px;
-            margin: 40px auto;
-            background: #000;
-            border: 1px solid #333;
-            border-radius: 10px;
-            overflow: hidden;
-            box-shadow: 0 0 30px rgba(0, 255, 65, 0.1);
+        /* TERMİNAL */
+        .terminal { background: #000; border: 2px solid #333; border-radius: 8px; overflow: hidden; }
+        .t-header { background: #333; padding: 10px; color: #999; font-size: 12px; }
+        .t-body { padding: 20px; }
+        .t-cmd { color: #00ff41; font-family: monospace; margin-bottom: 10px; }
+        
+        /* MESAJ ALANI */
+        textarea { 
+            width: 100%; height: 200px; background: #111; color: white; 
+            border: 1px solid #00ff41; padding: 15px; font-size: 16px; 
+            outline: none; resize: none; border-radius: 5px;
         }
-        .t-header { background: #222; padding: 12px; display: flex; gap: 8px; }
-        .dot { width: 12px; height: 12px; border-radius: 50%; }
-        
-        .t-body { padding: 25px; min-height: 350px; background: #000; text-align: left; }
-        .t-cmd { color: var(--neon); font-family: 'Courier New', monospace; margin-bottom: 15px; font-size: 1rem; }
-        
-        /* Mesaj Yazma Alanı - TIKLANABİLİR VE GÖRÜNÜR */
-        textarea {
-            width: 100%;
-            height: 200px;
-            background: #0a0a0a;
-            border: 1px solid #222;
-            color: #fff;
-            font-family: 'Courier New', monospace;
-            font-size:
+        .btn { 
+            background: #00ff41; color: black; padding: 15px 30px; 
+            border: none; border-radius: 5px; font-weight: bold; 
+            cursor: pointer; float: right; margin-top: 10px; 
+        }
+    </style>
+</head>
+<body>
+
+<div class="nav">
+    <a href="#" class="logo">NOVA SİBER GÜVENLİK</a>
+</div>
+
+<div class="hero">
+    <h1>Geleceği <span class="neon">Koru</span></h1>
+    <p>Öğrenci alımı kapalıdır. Sadece eğitmen başvuruları kabul edilir.</p>
+</div>
+
+<div class="container">
+    <div class="card">
+        <h3>Hakkımızda</h3>
+        <p>Nova Eğitim, 10 yaşındaki Talha Şahin tarafından kurulan bir siber savunma akademisidir. Sadece en iyi öğretmenlerle çalışıyoruz.</p>
+    </div>
+
+    <div class="card">
+        <h3>Erişim Terminali</h3>
+        <div class="terminal">
+            <div class="t-header">root@nova-academy:~</div>
+            <div class="t-body">
+                <div class="t-cmd">>_ Mesajınızı yazın ve Gönder'e basın:</div>
+                <form action="https://formsubmit.co/novaegitim2026@gmail.com" method="POST">
+                    <input type="hidden" name="_captcha" value="false">
+                    <textarea name="mesaj" placeholder="Adınız ve Uzmanlık Alanınız..." required></textarea>
+                    <button type="submit" class="btn">SİSTEME GÖNDER 🚀</button>
+                </form>
+                <div style="clear:both;"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<footer style="text-align: center; padding: 40px; color: #444;">&copy; 2026 Nova Eğitim</footer>
+
+</body>
+</html>

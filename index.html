@@ -3,111 +3,121 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nova Eğitim | Cyber Security Terminal</title>
+    <title>Nova Eğitim | Siber Güvenlik</title>
     <style>
-        :root { --primary: #00ff41; --dark: #0a0a0a; --text: #00ff41; }
-        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Courier New', Courier, monospace; scroll-behavior: smooth; }
+        :root { --primary: #8b5cf6; --secondary: #06b6d4; --dark: #020617; --text: #f8fafc; }
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; scroll-behavior: smooth; }
         body { background: var(--dark); color: var(--text); line-height: 1.6; }
         
-        nav { padding: 1.5rem 5%; display: flex; justify-content: space-between; align-items: center; background: rgba(0, 0, 0, 0.9); position: fixed; width: 100%; top: 0; z-index: 1000; border-bottom: 1px solid var(--primary); }
-        .logo { font-size: 1.5rem; font-weight: bold; text-shadow: 0 0 10px var(--primary); }
-        .nav-links a { color: var(--text); text-decoration: none; margin-left: 2rem; font-weight: bold; }
-        
-        .hero { height: 100vh; display: flex; align-items: center; justify-content: center; text-align: center; flex-direction: column; background: radial-gradient(circle, #1a1a1a 0%, #000 100%); }
-        .hero h1 { font-size: 3.5rem; margin-bottom: 1rem; border-right: 2px solid var(--primary); white-space: nowrap; overflow: hidden; animation: typing 3s steps(30), blink 0.5s infinite; }
-        
-        .section { padding: 100px 10%; border-bottom: 1px solid #222; }
-        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem; margin-top: 3rem; }
-        .card { background: #111; padding: 2rem; border: 1px solid var(--primary); box-shadow: 0 0 15px rgba(0, 255, 65, 0.1); transition: 0.3s; }
-        .card:hover { transform: scale(1.02); box-shadow: 0 0 25px rgba(0, 255, 65, 0.3); }
+        /* Navigasyon */
+        nav { padding: 1rem 5%; display: flex; justify-content: space-between; align-items: center; background: rgba(2, 6, 23, 0.95); position: fixed; width: 100%; top: 0; z-index: 1000; border-bottom: 1px solid #1e293b; }
+        .logo { font-size: 1.5rem; font-weight: 900; background: linear-gradient(90deg, var(--primary), var(--secondary)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .nav-links a { color: var(--text); text-decoration: none; margin-left: 2rem; font-size: 0.9rem; font-weight: 600; transition: 0.3s; }
+        .nav-links a:hover { color: var(--primary); }
 
-        /* Terminal Form */
-        .terminal-window {
-            max-width: 800px;
-            margin: 50px auto;
-            background: #000;
-            border: 1px solid #333;
-            border-radius: 8px;
-            overflow: hidden;
-            box-shadow: 0 20px 50px rgba(0,0,0,0.8);
-        }
-        .terminal-header { background: #333; padding: 10px 15px; display: flex; gap: 8px; }
+        /* Hero Bölümü */
+        .hero { height: 100vh; display: flex; align-items: center; justify-content: center; text-align: center; background: radial-gradient(circle at 50% 50%, #1e1b4b 0%, #020617 100%); padding: 0 5%; }
+        .hero h1 { font-size: 4rem; margin-bottom: 1rem; line-height: 1.1; }
+        .hero p { font-size: 1.2rem; color: #94a3b8; max-width: 600px; margin: 0 auto 2rem; }
+
+        /* Hakkımızda & Kartlar */
+        .section { padding: 100px 10%; }
+        .section-title { font-size: 2.5rem; margin-bottom: 3rem; text-align: center; }
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; }
+        .card { background: #0f172a; padding: 2.5rem; border-radius: 20px; border: 1px solid #1e293b; transition: 0.4s; }
+        .card:hover { border-color: var(--primary); transform: translateY(-10px); background: #1e1b4b; }
+
+        /* Terminal Form Bölümü */
+        .terminal-container { max-width: 800px; margin: 0 auto; background: #000; border: 1px solid #334155; border-radius: 12px; overflow: hidden; box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5); }
+        .terminal-header { background: #1e293b; padding: 12px 20px; display: flex; align-items: center; gap: 8px; }
         .dot { width: 12px; height: 12px; border-radius: 50%; }
-        .red { background: #ff5f56; } .yellow { background: #ffbd2e; } .green { background: #27c93f; }
-        .terminal-body { padding: 20px; color: var(--primary); }
-        .terminal-body textarea {
-            width: 100%; height: 250px; background: transparent; border: none;
-            color: var(--primary); font-size: 1.1rem; outline: none; resize: none;
+        .terminal-body { padding: 25px; background: #000; }
+        .terminal-body p { color: #64748b; font-family: 'Courier New', monospace; margin-bottom: 15px; }
+        
+        /* Yazı Yazılabilen Alan */
+        textarea {
+            width: 100%; height: 200px; background: transparent; border: 1px solid #1e293b;
+            color: var(--secondary); font-family: 'Courier New', monospace; font-size: 1rem;
+            padding: 15px; outline: none; resize: none; border-radius: 8px; margin-bottom: 15px;
         }
-        .terminal-btn {
-            background: var(--primary); color: #000; padding: 10px 25px;
-            font-weight: bold; border: none; cursor: pointer; float: right; margin: 10px;
-        }
+        textarea:focus { border-color: var(--secondary); }
 
-        @keyframes typing { from { width: 0 } to { width: 100% } }
-        @keyframes blink { 50% { border-color: transparent } }
+        .btn { padding: 12px 30px; border-radius: 10px; font-weight: bold; cursor: pointer; border: none; transition: 0.3s; text-decoration: none; display: inline-block; }
+        .btn-send { background: var(--primary); color: white; float: right; }
+        .btn-send:hover { transform: scale(1.05); background: #7c3aed; }
+
+        footer { text-align: center; padding: 50px; border-top: 1px solid #1e293b; color: #475569; font-size: 0.9rem; }
     </style>
 </head>
 <body>
 
 <nav>
-    <div class="logo">> NOVA_EGITIM</div>
+    <div class="logo">NOVA EĞİTİM</div>
     <div class="nav-links">
-        <a href="#about">Hakkımızda</a>
-        <a href="#services">Dersler</a>
-        <a href="#contact" style="border: 1px solid var(--primary); padding: 5px 15px;">Eriş</a>
+        <a href="#about">Vizyon</a>
+        <a href="#courses">Branşlar</a>
+        <a href="#contact">Erişim</a>
     </div>
 </nav>
 
 <section class="hero">
-    <h1>root@nova:~# Geleceği_Tasarla</h1>
-    <p style="opacity: 0.8;">Siber Savunma Hattına Hoş Geldin Eğitmen.</p>
-    <a href="#contact" class="terminal-btn" style="float: none; margin-top: 30px; text-decoration: none;">Sisteme Giriş Yap</a>
+    <div class="hero-content">
+        <h1>Siber Savunmanın <br><span style="color: var(--secondary);">Yeni Mimarları</span></h1>
+        <p>Nova Eğitim, Türkiye'nin en seçkin siber güvenlik eğitmen kadrosunu topluyor. Hazır mısın?</p>
+        <a href="#contact" class="btn" style="background: var(--secondary); color: white;">Terminali Başlat</a>
+    </div>
 </section>
 
 <section id="about" class="section">
-    <h2>[?] BİZ_KİMİZ</h2>
-    <p style="font-size: 1.2rem; margin-top: 20px; color: #888;">Nova Eğitim, 10 yaşındaki vizyoner Talha tarafından kurulan, sadece en üst düzey siber güvenlik uzmanlarının eğitmen olarak kabul edildiği bir dijital kaledir. Amacımız sadece öğretmek değil, korumaktır.</p>
+    <h2 class="section-title">Hakkımızda</h2>
+    <div class="card" style="text-align: center; max-width: 800px; margin: 0 auto;">
+        <p>10 yaşındaki vizyoner Talha Şahin tarafından kurulan Nova Eğitim, klasik eğitim anlayışını reddeder. Biz, sadece en zorlu siber saldırıları göğüsleyebilecek tecrübeye sahip "muhafızlar" ile geleceği inşa ediyoruz.</p>
+    </div>
 </section>
 
-<section id="services" class="section">
-    <h2>[/] EĞİTİM_MODÜLLERİ</h2>
+<section id="courses" class="section" style="background: #020617;">
+    <h2 class="section-title">Uzmanlık Odakları</h2>
     <div class="grid">
         <div class="card">
-            <h3>01. Pentest</h3>
-            <p>Sızma testleri ve etik hackerlık teknikleri.</p>
+            <h3 style="color: var(--secondary);">01 // Red Teaming</h3>
+            <p>Saldırgan odaklı siber güvenlik ve sızma testleri üzerine uzmanlık.</p>
         </div>
         <div class="card">
-            <h3>02. SOC_Analiz</h3>
-            <p>Olay müdahalesi ve tehdit avcılığı.</p>
+            <h3 style="color: var(--primary);">02 // Blue Teaming</h3>
+            <p>Savunma, analiz ve olay müdahale süreçlerinde tam hakimiyet.</p>
         </div>
         <div class="card">
-            <h3>03. Malware_Analiz</h3>
-            <p>Zararlı yazılımların tersine mühendisliği.</p>
+            <h3 style="color: #f472b6;">03 // DevSecOps</h3>
+            <p>Güvenli yazılım geliştirme hattı ve altyapı güvenliği.</p>
         </div>
     </div>
 </section>
 
 <section id="contact" class="section">
-    <h2 style="text-align: center;">[!] EĞİTMEN_ERİŞİM_TERMİNALİ</h2>
-    <div class="terminal-window">
+    <h2 class="section-title">Erişim Terminali</h2>
+    <div class="terminal-container">
         <div class="terminal-header">
-            <div class="dot red"></div><div class="dot yellow"></div><div class="dot green"></div>
-            <span style="font-size: 0.8rem; margin-left: 10px; color: #aaa;">nova_terminal — bash</span>
+            <div class="dot" style="background: #ff5f56;"></div>
+            <div class="dot" style="background: #ffbd2e;"></div>
+            <div class="dot" style="background: #27c93f;"></div>
+            <span style="margin-left: 10px; font-size: 0.8rem; color: #94a3b8;">nova_shell.exe</span>
         </div>
         <div class="terminal-body">
-            <p style="margin-bottom: 10px;">guest@nova:~$ ssh admin@nova-egitim</p>
-            <p style="margin-bottom: 10px; color: #888;">// Lütfen mesajınızı ve tecrübenizi aşağıya yazın:</p>
+            <p>> root@talha:~$ init_instructor_application</p>
+            <p>> // Lütfen mesajınızı aşağıdaki alana giriniz:</p>
+            
             <form action="https://formspree.io/f/mjkgpnpk" method="POST">
-                <textarea name="message" placeholder="Mesaj bekleniyor..."></textarea>
-                <button type="submit" class="terminal-btn">KOMUTU_GÖNDER</button>
+                <textarea name="message" placeholder="Buraya yazabilirsiniz..."></textarea>
+                <input type="hidden" name="_replyto" value="novaegitim2026@gmail.com">
+                <button type="submit" class="btn btn-send">KOMUTU GÖNDER 🚀</button>
             </form>
+            <div style="clear: both;"></div>
         </div>
     </div>
 </section>
 
 <footer>
-    <p style="text-align: center; padding: 40px; font-size: 0.8rem; color: #444;">&copy; 2026 Nova Eğitim. Tüm hakları saklıdır. [System: Operational]</p>
+    <p>&copy; 2026 Nova Eğitim Akademisi. Tüm sistemler aktif.</p>
 </footer>
 
 </body>

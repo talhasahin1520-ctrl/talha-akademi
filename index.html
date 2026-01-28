@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nova Eğitim | Geleceğin Akademisi</title>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;800&display=swap" rel="stylesheet">
+    <style>
+        :root { 
+            --primary: #6366f1; --secondary: #ec4899; --dark: #070b14; 
+            --card-bg: rgba(15, 23, 42, 0.8); --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        body { 
+            background: radial-gradient(circle at top right, #1e1b4b, var(--dark));
+            color: #f8fafc; font-family: 'Plus Jakarta Sans', sans-serif; margin: 0; overflow-x: hidden;
+        }
+        nav { 
+            padding: 20px 8%; display: flex; justify-content: space-between; align-items: center; 
+            background: rgba(7, 11, 20, 0.8); backdrop-filter: blur(15px); position: sticky; top: 0; z-index: 1000; border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+        .logo { font-weight: 800; font-size: 1.8rem; cursor: pointer; background: linear-gradient(to right, #fff, var(--primary)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .section { display: none; padding: 100px 8% 60px; animation: slideUp 0.5s ease-out; }
+        @keyframes slideUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
+        .active { display: block !important; }
+        .hero { text-align: center; }
+        .hero h1 { font-size: 4rem; margin-bottom: 20px; line-height: 1.1; }
+        .gradient-text { background: linear-gradient(90deg, var(--primary), var(--secondary)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        
+        /* Video yerine şık bir görsel alan veya slogan alanı */
+        .feature-banner { 
+            max-width: 800px; margin: 50px auto; padding: 60px; 
+            background: linear-gradient(135deg, rgba(99, 102, 241, 0.1), rgba(236, 72, 153, 0.1)); 
+            border-radius: 40px; border: 1px dashed var(--primary);
+        }
+
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; margin-top: 50px; }
+        .card { background: var(--card-bg); padding: 40px; border-radius: 30px; border: 1px solid rgba(255,255,255,0.05); transition: var(--transition); }
+        .card:hover { transform: translateY(-10px); border-color: var(--primary); }
+        .btn { padding: 18px 40px; border-radius: 20px; font-weight: 700; cursor: pointer; border: none; transition: var(--transition); text-decoration: none; display: inline-block; }
+        .btn-primary { background: var(--primary); color: white; box-shadow: 0 10px 20px rgba(99, 102, 241, 0.3); }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="logo" onclick="showPage('home')">NOVA<span>EĞİTİM</span></div>
+        <div style="display: flex; gap: 10px;">
+            <button class="btn" onclick="showPage('about')" style="background:none; color:white; padding: 10px;">Vizyon</button>
+            <button class="btn btn-primary" onclick="showPage('apply')" style="padding: 10px 20px;">Katıl</button>
+        </div>
+    </nav>
+
+    <div id="home" class="section active">
+        <div class="hero">
+            <span style="color: var(--secondary); font-weight: 700; letter-spacing: 2px;">SINIRLARI ZORLA</span>
+            <h1>Yapay Zeka İle <br><span class="gradient-text">Geleceği Tasarla</span></h1>
+            
+            <div class="feature-banner">
+                <h2 style="margin:0;">2026 Teknoloji Devrimi Başlıyor</h2>
+                <p>Nova Eğitim ile kodlamadan siber güvenliğe her şeyi keşfet.</p>
+            </div>
+
+            <div class="grid">
+                <div class="card"><h3>🚀 Robotik Kodlama</h3><p>Python ve C++ ile kendi dünyanı kur.</p></div>
+                <div class="card"><h3>🧠 AI Mühendisliği</h3><p>Geleceğin zekasını sen yönet.</p></div>
+                <div class="card"><h3>🛡️ Siber Güvenlik</h3><p>Dijital dünyayı sen koru.</p></div>
+            </div>
+        </div>
+    </div>
+
+    <div id="about" class="section">
+        <h2 style="text-align: center; font-size: 3rem;">Biz Kimiz?</h2>
+        <div class="card" style="max-width: 800px; margin: 40px auto;">
+            <p>Nova Eğitim, 10 yaşındaki vizyoner <b>Talha</b> tarafından kuruldu. Hedefimiz herkesi teknoloji lideri yapmak!</p>
+        </div>
+    </div>
+
+    <div id="apply" class="section">
+        <h2 class="gradient-text" style="text-align: center; font-size: 3rem;">Ekibimize Katıl</h2>
+        <div class="grid">
+            <div class="card">
+                <h4>Eğitmen Ol</h4>
+                <p>Ders başı 1000 TL kazan.</p>
+                <a href="mailto:novaegitim2026@gmail.com" class="btn btn-primary">Başvur</a>
+            </div>
+            <div class="card">
+                <h4>Öğrenci Ol</h4>
+                <p>İlk dersin hediye!</p>
+                <a href="mailto:novaegitim2026@gmail.com" class="btn btn-primary">Kayıt Ol</a>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Sayfa değiştirme fonksiyonu (Tek JS kodumuz bu kaldı kanka)
+        function showPage(id) {
+            document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
+            document.getElementById(id).classList.add('active');
+            window.scrollTo({top:0, behavior:'smooth'});
+        }
+    </script>
+</body>
+</html>
